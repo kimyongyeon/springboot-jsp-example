@@ -16,8 +16,8 @@
 <!-- HTML 폼 -->
 <form action="/postAction" id="formWeb" method="post">
     <label for="webName">이름:</label>
-    <input name="webName" type="text">
-    <button type="submit">click</button>
+    <input id="webName" name="webName" type="text">
+    <button id="submitButton" type="submit">click</button>
 </form>
 
 <!-- jQuery 코드 -->
@@ -31,9 +31,16 @@
             const webNameValue = $('input[name="webName"]').val();
             console.log('Form submitted with value:', webNameValue);
 
+            // 제출 버튼 비활성화
+            $('#submitButton').prop('disabled', true);
+
+            // 추가적으로 사용자에게 로딩 중임을 표시할 수 있음
+            $('#submitButton').text('제출 중...');
+
             // 폼을 실제로 제출하고 싶을 경우 아래 코드 실행
             this.submit();
         });
+
     });
 </script>
 </body>
